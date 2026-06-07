@@ -1,0 +1,6 @@
+apiVersion: v2
+name: schema-mapping-studio
+description: LLM-powered canonical schema normalization microservice
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
