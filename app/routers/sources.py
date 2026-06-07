@@ -2,6 +2,7 @@
 import json
 import logging
 from datetime import datetime, timezone
+from typing import Any, Optional
 
 from fastapi import APIRouter, Depends, HTTPException, status, Request
 from sqlalchemy import func, select
@@ -67,7 +68,7 @@ async def onboard_source(body: OnboardRequest, request: Request, db: AsyncSessio
 
 @router.get("", response_model=list[MappingListItem])
 async def list_sources(
-    status_filter: str | None = None,
+    status_filter: Optional[str] | None = None,
     db: AsyncSession = Depends(get_db),
 ):
     """List all registered source mappings."""

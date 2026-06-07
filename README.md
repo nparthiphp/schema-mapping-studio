@@ -45,6 +45,10 @@ API docs: http://localhost:8080/docs
 
 ---
 
+## How it works
+
+![Workflow](docs/images/workflow.svg)
+
 ## Usage
 
 ### 1. Onboard a source

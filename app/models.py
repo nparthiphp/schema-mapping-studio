@@ -1,7 +1,7 @@
 import uuid
 from datetime import datetime
 from enum import Enum
-from typing import Any
+from typing import Any, Optional
 
 from sqlalchemy import JSON, DateTime, Float, Integer, String, Text, func
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
@@ -38,7 +38,7 @@ class MappingRecord(Base):
     error_count:    Mapped[int]   = mapped_column(Integer,      nullable=False, default=0)
     created_at:     Mapped[datetime] = mapped_column(DateTime,  default=func.now())
     updated_at:     Mapped[datetime] = mapped_column(DateTime,  default=func.now(), onupdate=func.now())
-    approved_at:    Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    approved_at:    Mapped[Optional[datetime]] = mapped_column(DateTime, nullable=True)
 
 
 # ── Pydantic schemas ──────────────────────────────────────────────────────────
@@ -83,7 +83,7 @@ class MappingListItem(BaseModel):
     generation_mode: str
     transform_count: int
     created_at:      datetime
-    approved_at:     datetime | None
+    approved_at:     Optional[datetime]
 
 
 class MappingDetail(MappingListItem):
